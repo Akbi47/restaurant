@@ -57,13 +57,13 @@ class Tintuc extends CI_Controller {
 		 // lay ve du lieu ma co id trùng vơi id của dòng trên 
 		$tinlienquan = $this->tin_model->loadTinLienQuan($this->soluongtin1trang,$idDanhMuc,$idTin);
  
-		$dulieunguoidung =  array(
-			'suachua' => 'vinamilk',
-			'suatuoi' => 'TRUEMILK'
-			 );
+		// $dulieunguoidung =  array(
+		// 	'suachua' => 'vinamilk',
+		// 	'suatuoi' => 'TRUEMILK'
+		// 	 );
 
 
-		$this->session->set_userdata($dulieunguoidung);
+		//$this->session->set_userdata($dulieunguoidung);
 
 		 
 		//$this->session->unset_userdata('suachua' );
@@ -76,7 +76,8 @@ class Tintuc extends CI_Controller {
 			'cacdanhmuc' => $danhmuc,
 			'tinlienquan' => $tinlienquan
 		 );
-		$this->load->view('news_detail', $dl, FALSE);
+
+		 $this->load->view('news_detail', $dl, FALSE);
 	}
 
 	public function danhmuc($idDanhMuc)
@@ -109,7 +110,7 @@ class Tintuc extends CI_Controller {
 				'text' => "Giờ mở cửa", 
 				'gio' => "9h - 8h"
 				),
-			'logo' => "http://127.0.0.1:4001/bai5slide//uploads/1.jpg" 
+			'logo' => "http://127.0.0.1:80/mvc-project/restaurant/uploads/1.jpg" 
 
 			);
 		$dlHeader = json_encode($dlHeader);

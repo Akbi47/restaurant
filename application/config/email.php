@@ -8,8 +8,10 @@ $config = array(
 	',
     'smtp_pass' => 'qvak472000@hcmus',
     'smtp_crypto' => 'tls', //can be 'ssl' or 'tls' for example
-    'mailtype' => 'text', //plaintext 'text' mails or 'html'
+    'mailtype' => 'html', //plaintext 'text' mails or 'html'
     'smtp_timeout' => '4', //in seconds
     'charset' => 'iso-8859-1',
+    'remove_space' => FALSE,
     'wordwrap' => TRUE
+    
 );

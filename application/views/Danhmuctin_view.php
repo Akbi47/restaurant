@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<title>quản lý danh mục </title>
 	
-	<link rel="stylesheet" href="<?= base_url() ?>/vendor/bootstrap.css">
-	<link rel="stylesheet" href="<?= base_url() ?>/vendor/font-awesome.css">
- 	<link rel="stylesheet" href="<?= base_url() ?>/1.css">
+
 </head>
 <body>
 <?php 
@@ -22,7 +20,7 @@
 						<p class="lead">Form này cho phép thêm danh mục tin và cơ sở dữ liệu.</p>
 					</div>
 				</div>
-				<!-- <form action="<?php //echo base_url(); ?>/tin/themdanhmuc" method="post"> -->
+				
 					<fieldset class="form-group">
 						<label for="formGroupExampleInput">Tên danh mục</label>
 						<input name="tendanhmuc" type="text" class="form-control" id="tendanhmuc" placeholder="Tên danh mục">
@@ -69,12 +67,12 @@
 									<fieldset class="form-group jquery_tendanhmuc   hidden-xs-up">
 
 									<input type="hidden" class="form-control id" value="  <?= $motketqua['id']; ?>">
- 										<input type="text" class="form-control tendanhmucsua"  value="<?= $motketqua['tendanhmuc']; ?>">
+ 										<input type="text" class="form-control tendanhmucsua"  value="<?= $motketqua['name']; ?>">
 									</fieldset>
 									 
 							<div class="noidung_ten">
 								
-									<?= $motketqua['tendanhmuc']; ?>
+									<?= $motketqua['name']; ?>
 							</div>
 						      
  						    </h4> 
@@ -90,7 +88,7 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="<?= base_url() ?>/vendor/bootstrap.js"></script>
+	<script type="text/javascript" src="<?= base_url() ?>vendor/bootstrap.js"></script>
   	<script>
  		 
  	$(function(){
@@ -173,26 +171,26 @@
  			// var tendanhmuc = $('#tendanhmuc').val();
  			// console.log(tendanhmuc);
  			$.ajax({
- 				url: duongdan+'/tin/addJquery',  // gửi đi controller xử lý 
+ 				url: duongdan+'tin/addJquery',  // gửi đi controller xử lý 
  				type: 'POST',
  				dataType: 'json',
- 				data: {tendanhmuc: $('#tendanhmuc').val()} 
+ 				data: {tendanhmuc: $('#tendanhmuc').val()} ,
+				async: false
  			})
- 			.done(function() {
- 				//console.log("success");
+ 			.done(function(data, textStatus, jqXHR) {
+ 				console.log("success");
  			})
- 			.fail(function() {
- 				//console.log("error");
+ 			.fail(function(jqXHR, textStatus, errorThrown) {
+ 				console.log("error");
  			})
- 			.always(function(res) {
- 				console.log(res);
- 
+ 			.always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
+ 				console.log(dataOrjqXHR);
  				// dung jquery ve ra noi dung them moi
  				noidung = '<div class="card card-inverse card-primary mb-3 text-center">';
  				noidung += ' <div class="card-block">';
  				noidung += '<div class="thaotac text-xs-right">';
- 				noidung += '<a data-href="'+res+'" class="nutedit btn btn-danger"> <i class="fa fa-pencil"></i></a>';
- 				noidung += ' <a data-href="'+res+'" class="nutxoa btn btn-warning"> <i class="fa fa-remove"></i></a>';
+ 				noidung += '<a data-href="'+dataOrjqXHR+'" class="nutedit btn btn-danger"> <i class="fa fa-pencil"></i></a>';
+ 				noidung += ' <a data-href="'+dataOrjqXHR+'" class="nutxoa btn btn-warning"> <i class="fa fa-remove"></i></a>';
  				noidung += '</div>';
  				noidung += '<h4 class="card-blockquote">';
  				noidung += '<div class="noidung_ten">';
@@ -203,7 +201,8 @@
  				noidung += '</div>';
  				$('.cacdanhmuc').append(noidung); // ve va dua noi dung vao 
  				$('#tendanhmuc').val(''); // xoa trang 
-
+				// res return http://127.0.0.1/mvc-project/restaurant/tin/xoadanhmuc/1
+				// and we use dom to move to parent of this id for deleting it	
  			});
  			
 
@@ -212,10 +211,10 @@
 
  		$('body').on('click', '.nutxoa', function(event) {
  			/* Act on the event */
- 			idtin = $(this).data('href');
- 			doituongcanxoa = $(this).parent().parent().parent();
+ 			idtin = $(this).data('href'); // return data of element
+ 			doituongcanxoa = $(this).parent().parent().parent(); // delete obj when click delete symbol
  			$.ajax({
- 			 			 	url: duongdan + '/tin/xoadanhmuc/'+idtin,
+ 			 			 	url: duongdan + 'tin/xoadanhmuc/'+idtin,
  			 			 	type: 'POST',
  			 			 	dataType: 'json'
  			 			 })
@@ -236,6 +235,8 @@
  		 
  	})
  	</script>
-
+	<link rel="stylesheet" href="<?= base_url() ?>vendor/bootstrap.css">
+	<link rel="stylesheet" href="<?= base_url() ?>vendor/font-awesome.css">
+ 	<link rel="stylesheet" href="<?= base_url() ?>1.css">
 </body>
 </html>

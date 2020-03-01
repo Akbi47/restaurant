@@ -39,15 +39,15 @@ class slides_model extends CI_Model {
 	public function booking($tenkh,$email,$sdt,$ngaydatban,$giodatban,$songuoi)
 	{
 		$khachhang = array(
-			'tenkh' => $tenkh,
+			'name' => $tenkh,
 			'email' => $email,
-			'sdt' => $sdt,
-			'ngaydatban' => $ngaydatban,
-			'giodatban' => $giodatban,
-			'songuoi' => $songuoi
+			'number' => $sdt,
+			'date' => $ngaydatban,
+			'time' => $giodatban,
+			'amount' => $songuoi
 			 );
 		 
-		return $this->db->insert('datban', $khachhang);
+		return $this->db->insert('dessert', $khachhang);
 	}
 
 }

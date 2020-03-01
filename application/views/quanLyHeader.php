@@ -21,7 +21,7 @@
  		<?php 
 			include 'header_backend.php';
 		 ?>
-		<?php foreach ($dulieu as $key => $value): ?>
+		<?php foreach ($dulieu as $key => $value) { ?>
 			<?php 
 				if($key == "mangXH"){
 					$mangXH = $value; 
@@ -42,7 +42,7 @@
 
 				
 			 ?>
-		<?php endforeach ?>
+		<?php } ?>
 
 
 		 <div class="container-fluid">
@@ -61,7 +61,7 @@
 					 
 					<fieldset class="form-group">						
 						<label for="formGroupExampleInput">Link Facebook</label>
-						<input value="<?= $mangXH['linkFB'] ?>" name="linkFB" type="text" class="form-control" id="linkFB" placeholder="linkFB">
+						<input value="<?php echo $mangXH['linkFB'] ?>" name="linkFB" type="text" class="form-control" id="linkFB" placeholder="linkFB">
 					</fieldset>
 					<fieldset class="form-group">						
 						<label for="formGroupExampleInput">Link twitter</label>

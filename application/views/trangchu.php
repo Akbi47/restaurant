@@ -55,13 +55,13 @@
 
 			        <ul class="nav navbar-nav float-sm-right">
 			          <li class="nav-item active">
-			            <a class="nav-link" href="index.html">Home  </a>
+			            <a class="nav-link" href="<?php echo base_url() ?>">Home  </a>
 			          </li>
 			          <li class="nav-item">
-			            <a class="nav-link" href="about.html">About</a>
+			            <a class="nav-link" href="#">About</a>
 			          </li>
 			          <li class="nav-item">
-			            <a class="nav-link" href="news.html">News</a>
+			            <a class="nav-link" href="<?php echo base_url() ?>tintuc/page/1">News</a>
 			          </li>
 			          <li class="nav-item">
 			            <a class="nav-link" href="thucdon.html">Menu</a>
@@ -934,7 +934,7 @@
 	</div>  <!-- HET FOOTERTOP -->
 
 	<div class="footerbottom text-xs-center fontroboto wow  fadeInUp" data-wow-delay="0s">
-		 Copyrights © 2015  All Rights Reserved. 
+	Copyrights © 2020 All Rights Reserved.
 	</div>
 
 </body>

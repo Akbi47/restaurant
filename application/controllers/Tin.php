@@ -79,7 +79,7 @@ class Tin extends CI_Controller {
 		$this->load->model('tin_model');
 		$this->tin_model->insertDanhMuc($tendanhmuc); 
 		 
-	 	echo json_encode($this->db->insert_id()); 
+	 	echo json_encode($this->db->insert_id()); //send back to ajax with json method
 		 
 		
 		 
